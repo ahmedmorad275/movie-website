@@ -10,7 +10,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="logo-box flex items-center gap-1.5 md:gap-3">
             <img src={logo} className="h-10 md:h-12" alt="AMG Cinema" />
-            <p className="text-xl md:text-2xl  font-bold tracking-wide brightness-150 text-rose-700">
+            <p className="text-xl md:text-2xl font-bold tracking-wide brightness-150 text-rose-700">
               AMG<span className="text-white">Cinema</span>
             </p>
           </div>

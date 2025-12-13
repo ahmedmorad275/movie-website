@@ -1,3 +1,4 @@
+import FeaturedMovies from "./Components/FeaturedMovies";
 import Hero from "./Components/Hero";
 import Navbar from "./Components/Navbar";
 
@@ -31,6 +32,7 @@ function App() {
         <Navbar />
         <Hero />
       </header>
+      <FeaturedMovies />
     </>
   );
 }
