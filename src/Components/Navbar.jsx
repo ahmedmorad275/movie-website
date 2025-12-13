@@ -1,6 +1,6 @@
-import React from 'react';
-import logo from '../assets/logo.png';
-import { IoSearch, IoMenu } from 'react-icons/io5';
+import React from "react";
+import logo from "../assets/logo.png";
+import { IoSearch, IoMenu } from "react-icons/io5";
 
 export default function Navbar() {
   return (
@@ -10,7 +10,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="logo-box flex items-center gap-1.5 md:gap-3">
             <img src={logo} className="h-10 md:h-12" alt="AMG Cinema" />
-            <p className="text-xl md:text-2xl  font-bold tracking-wide text-rose-700">
+            <p className="text-xl md:text-2xl  font-bold tracking-wide brightness-150 text-rose-700">
               AMG<span className="text-white">Cinema</span>
             </p>
           </div>
@@ -21,7 +21,17 @@ export default function Navbar() {
             <div className="flex items-center relative">
               <input
                 type="text"
-                className="placeholder:text-white border w-92 border-gray-300 outline-none focus:ring focus:ring-gray-400  text-white rounded-lg px-3 pr-8 py-1"
+                className="
+    placeholder:text-white/70
+    bg-black/40 border w-72 border-white/30
+    outline-none text-white
+    rounded-lg px-3 pr-8 py-1
+    transition-all duration-300
+    focus:w-80
+    focus:bg-black/60
+    focus:border-rose-600
+    focus:shadow-[0_0_15px_rgba(244,63,94,0.5)]
+  "
                 placeholder="Search movies..."
               />
               <IoSearch className="absolute top-1/2 right-3 -translate-y-1/2" />
