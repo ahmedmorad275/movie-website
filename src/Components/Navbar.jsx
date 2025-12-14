@@ -1,16 +1,16 @@
-import React from "react";
-import logo from "../assets/logo.png";
-import { IoSearch, IoMenu } from "react-icons/io5";
+import React from 'react'
+import logo from '../assets/logo.png'
+import { IoSearch, IoMenu } from 'react-icons/io5'
 
 export default function Navbar() {
   return (
     <>
-      <nav className="md:p-3 p-2">
-        <div className="max-w-7xl flex justify-between items-center mx-auto">
+      <nav className="sticky top-0 z-50 p-2 md:p-3">
+        <div className="mx-auto flex max-w-7xl items-center justify-between">
           {/* Logo */}
           <div className="logo-box flex items-center gap-1.5 md:gap-3">
             <img src={logo} className="h-10 md:h-12" alt="AMG Cinema" />
-            <p className="text-xl md:text-2xl font-bold tracking-wide brightness-150 text-rose-700">
+            <p className="text-xl font-bold tracking-wide text-rose-700 brightness-150 md:text-2xl">
               AMG<span className="text-white">Cinema</span>
             </p>
           </div>
@@ -18,20 +18,10 @@ export default function Navbar() {
           {/* Search Desktop*/}
           <div className="search-box-pc relative hidden text-white md:block">
             {/* search Input */}
-            <div className="flex items-center relative">
+            <div className="relative flex items-center">
               <input
                 type="text"
-                className="
-    placeholder:text-white/70
-    bg-black/40 border w-72 border-white/30
-    outline-none text-white
-    rounded-lg px-3 pr-8 py-1
-    transition-all duration-300
-    focus:w-80
-    focus:bg-black/60
-    focus:border-rose-600
-    focus:shadow-[0_0_15px_rgba(244,63,94,0.5)]
-  "
+                className="w-72 rounded-lg border border-white/30 bg-black/40 px-3 py-1 pr-8 text-white transition-all duration-300 outline-none placeholder:text-white/70 focus:w-80 focus:border-rose-600 focus:bg-black/60 focus:shadow-[0_0_15px_rgba(244,63,94,0.5)]"
                 placeholder="Search movies..."
               />
               <IoSearch className="absolute top-1/2 right-3 -translate-y-1/2" />
@@ -57,16 +47,16 @@ export default function Navbar() {
           </div>
 
           {/* Menu Desktop*/}
-          <div className="flex menu-box items-center gap-2.5 md:gap-3.5">
-            <button className="border text-white border-gray-300 rounded-lg px-4 py-1 cursor-pointer hover:bg-rose-700 hover:border-rose-700 font-semibold transition-colors duration-300 ">
+          <div className="menu-box flex items-center gap-2.5 md:gap-3.5">
+            <button className="cursor-pointer rounded-lg border border-gray-300 px-4 py-1 font-semibold text-white transition-colors duration-300 hover:border-rose-700 hover:bg-rose-700">
               Login
             </button>
-            <div className="flex items-center text-white bg-rose-700 font-bold text-2xl rounded-full p-1 cursor-pointer">
+            <div className="flex cursor-pointer items-center rounded-full bg-rose-700 p-1 text-2xl font-bold text-white">
               <IoMenu />
             </div>
           </div>
         </div>
       </nav>
     </>
-  );
+  )
 }

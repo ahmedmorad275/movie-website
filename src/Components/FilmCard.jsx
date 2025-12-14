@@ -3,7 +3,7 @@ import { MdFavoriteBorder } from 'react-icons/md'
 
 export default function FilmCard() {
   return (
-    <div className="flex-1 space-y-3 overflow-hidden rounded-lg bg-gray-50/20 p-2">
+    <div className="flex-1 space-y-3 overflow-hidden rounded-lg bg-gray-50/20 p-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       <div className="relative">
         <img
           src="https://m.media-amazon.com/images/M/MV5BNjRiMTA4NWUtNmE0ZC00NGM0LWJhMDUtZWIzMDM5ZDIzNTg3XkEyXkFqcGc@._V1_.jpg"

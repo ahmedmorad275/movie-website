@@ -1,8 +1,9 @@
 import ExclusiveVideos from './Components/ExclusiveVideos'
 import FeaturedMovies from './Components/FeaturedMovies'
+import Footer from './Components/Footer'
 import Hero from './Components/Hero'
 import Navbar from './Components/Navbar'
-import Newarrival from './Components/Newarrival'
+import NewArrival from './Components/NewArrival'
 
 function App() {
   return (
@@ -27,8 +28,9 @@ function App() {
         <Hero />
       </header>
       <FeaturedMovies />
-      <Newarrival />
+      <NewArrival />
       <ExclusiveVideos />
+      <Footer />
     </>
   )
 }

@@ -7,7 +7,7 @@ export default function Hero() {
     <main className="p-2 md:p-3">
       <div className="max-w-7xl mx-auto text-white flex flex-col md:flex-row justify-between gap-10 my-28 animate-fadeIn">
         {/* Description */}
-        <div className="description w-96 space-y-3.5">
+        <div className="description max-w-md w-full space-y-3.5">
           {/* Title */}
           <h1 className="font-bold text-5xl whitespace-nowrap">
             John Wick 3 : Parabellum
@@ -28,7 +28,7 @@ export default function Hero() {
                 <g
                   transform="translate(8.000000, 7.000000)"
                   fill="#000000"
-                  fill-rule="nonzero"
+                  fillRule="nonzero"
                 >
                   <polygon points="0 18 5 18 5 0 0 0"></polygon>
                   <path d="M15.6725178,0 L14.5534833,8.40846934 L13.8582008,3.83502426 C13.65661,2.37009263 13.4632474,1.09175121 13.278113,0 L7,0 L7,18 L11.2416347,18 L11.2580911,6.11380679 L13.0436094,18 L16.0633571,18 L17.7583653,5.8517865 L17.7707076,18 L22,18 L22,0 L15.6725178,0 Z"></path>

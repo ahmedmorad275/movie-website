@@ -7,9 +7,9 @@ export default function VideoCard() {
       <div className="relative text-white">
         <img
           src="https://m.media-amazon.com/images/M/MV5BNjRiMTA4NWUtNmE0ZC00NGM0LWJhMDUtZWIzMDM5ZDIzNTg3XkEyXkFqcGc@._V1_.jpg"
-          className="h-64 w-96 rounded-lg"
+          className="aspect-video w-full rounded-lg object-cover"
         />
-        <IoPlayCircleOutline className="absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-6xl cursor-pointer" />
+        <IoPlayCircleOutline className="absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 cursor-pointer text-6xl" />
       </div>
 
       <h3 className="text-lg font-bold text-gray-900">Stranger Things</h3>

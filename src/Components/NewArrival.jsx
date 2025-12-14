@@ -2,7 +2,7 @@ import React from 'react'
 import { FaChevronRight } from 'react-icons/fa'
 import FilmCard from './FilmCard'
 
-export default function Newarrival() {
+export default function NewArrival() {
   return (
     <section className="my-8 p-2 md:p-3">
       <div className="mx-auto max-w-7xl">

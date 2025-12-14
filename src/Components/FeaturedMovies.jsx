@@ -16,7 +16,7 @@ export default function FeaturedMovies() {
           </a>
         </div>
         {/* Films */}
-        <div className='flex justify-between gap-12 mt-6'>
+        <div className="mt-6 flex justify-between gap-12">
           <FilmCard />
           <FilmCard />
           <FilmCard />
