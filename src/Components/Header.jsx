@@ -1,8 +1,8 @@
-import React from 'react'
 import Hero from './Hero'
 import Navbar from './Navbar'
 
 export default function Header() {
+
   return (
     <header className="relative min-h-screen overflow-hidden">
       {/* Background Image */}

@@ -1,13 +1,8 @@
-import React, { useEffect, useState } from 'react'
+// import React, { useEffect, useState } from 'react'
 import { FaPlayCircle } from 'react-icons/fa'
-import { getMovie } from '../Api/MoviesApi'
+// import { getMovie } from '../Api/MoviesApi'
 
 export default function Hero() {
-  const [movie, setMovie] = useState([])
-  useEffect(function () {
-    setMovie(getMovie())
-    console.log(movie)
-  }, [])
 
   const paginationArr = [1, 2, 3, 4, 5]
   return (
