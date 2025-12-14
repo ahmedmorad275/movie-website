@@ -1,4 +1,3 @@
-import React from 'react'
 import logo from '../assets/logo.png'
 import { IoSearch, IoMenu } from 'react-icons/io5'
 
@@ -8,7 +7,7 @@ export default function Navbar() {
       <nav className="sticky top-0 z-50 p-2 md:p-3">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           {/* Logo */}
-          <div className="logo-box flex items-center gap-1.5 md:gap-3">
+          <div className="logo-box flex cursor-pointer items-center gap-1.5 md:gap-3">
             <img src={logo} className="h-10 md:h-12" alt="AMG Cinema" />
             <p className="text-xl font-bold tracking-wide text-rose-700 brightness-150 md:text-2xl">
               AMG<span className="text-white">Cinema</span>

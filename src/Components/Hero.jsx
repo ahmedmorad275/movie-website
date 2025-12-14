@@ -1,20 +1,25 @@
-import React from "react";
-import { FaPlayCircle } from "react-icons/fa";
+import React, { useEffect, useState } from 'react'
+import { FaPlayCircle } from 'react-icons/fa'
+import { getMovie } from '../Api/MoviesApi'
 
 export default function Hero() {
-  const paginationArr = [1, 2, 3, 4, 5];
+  const [movie, setMovie] = useState([])
+  useEffect(function () {
+    setMovie(getMovie())
+    console.log(movie)
+  }, [])
+
+  const paginationArr = [1, 2, 3, 4, 5]
   return (
     <main className="p-2 md:p-3">
-      <div className="max-w-7xl mx-auto text-white flex flex-col md:flex-row justify-between gap-10 my-28 animate-fadeIn">
+      <div className="animate-fadeIn mx-auto my-28 flex max-w-7xl flex-col justify-between gap-10 text-white md:flex-row">
         {/* Description */}
-        <div className="description max-w-md w-full space-y-3.5">
+        <div className="description w-full max-w-md space-y-3.5">
           {/* Title */}
-          <h1 className="font-bold text-5xl whitespace-nowrap">
-            John Wick 3 : Parabellum
-          </h1>
+          <h1 className="text-5xl font-bold">John Wick 3 : Parabellum</h1>
           {/* Rating */}
           <div className="flex items-center gap-8">
-            <div className="flex gap-1.5 items-center">
+            <div className="flex items-center gap-1.5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="64"
@@ -53,7 +58,7 @@ export default function Hero() {
             </p>
           </div>
           {/* Button */}
-          <button className="flex items-center gap-2.5 hover:bg-rose-600 transition-colors duration-300 bg-rose-700 px-4 py-1.5 font-bold cursor-pointer rounded-lg">
+          <button className="flex cursor-pointer items-center gap-2.5 rounded-lg bg-rose-700 px-4 py-1.5 font-bold transition-colors duration-300 hover:bg-rose-600">
             <FaPlayCircle />
             <p>WATCH TRAILER</p>
           </button>
@@ -64,15 +69,15 @@ export default function Hero() {
             return (
               <p
                 className={`cursor-pointer ${
-                  index === 2 ? "font-bold text-white text-lg" : ""
-                } hover:text-white transition`}
+                  index === 2 ? 'text-lg font-bold text-white' : ''
+                } transition hover:text-white`}
               >
                 {index + 1}
               </p>
-            );
+            )
           })}
         </div>
       </div>
     </main>
-  );
+  )
 }
