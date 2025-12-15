@@ -3,14 +3,55 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateX(30px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
+}
+
+.active-pagination {
+  position: relative;
+}
+.active-pagination::before {
+  content: '';
+  display: none;
+  height: 2px;
+  width: 14px;
+  background-color: white;
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  margin: 1px;
+  transform: translateY(-50%);
 }
 
 .animate-fadeIn {
   animation: fadeIn 1s ease-out forwards;
+}
+
+@media (min-width: 768px) {
+  .active-pagination::before {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 14px;
+    background-color: white;
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    margin: 1px;
+    transform: translateY(-50%);
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }

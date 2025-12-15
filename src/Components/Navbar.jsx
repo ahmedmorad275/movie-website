@@ -4,7 +4,7 @@ import { IoSearch, IoMenu } from 'react-icons/io5'
 export default function Navbar() {
   return (
     <>
-      <nav className="sticky top-0 z-50 p-2 md:p-3">
+      <nav className="p-2 md:p-3">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           {/* Logo */}
           <div className="logo-box flex cursor-pointer items-center gap-1.5 md:gap-3">

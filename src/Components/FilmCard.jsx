@@ -2,8 +2,6 @@ import React from 'react'
 import { MdFavoriteBorder } from 'react-icons/md'
 
 export default function FilmCard({ movie }) {
-  const date = new Date(movie.release_date)
-
   const imgURL = 'https://image.tmdb.org/t/p/w500' + movie.poster_path
   return (
     <div className="flex-1 space-y-3 overflow-hidden rounded-lg bg-gray-50/20 p-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
@@ -16,10 +14,10 @@ export default function FilmCard({ movie }) {
       <p className="text-xs text-gray-400">
         USA,{' '}
         {new Date(movie.release_date).getFullYear() ||
-          new Date(movie.first_air_date ).getFullYear()}{' '}
+          new Date(movie.first_air_date).getFullYear()}{' '}
         - Current
       </p>
-      <h3 className="text-lg  font-bold text-gray-900">
+      <h3 className="text-lg font-bold text-gray-900">
         {movie.original_name || movie.title}
       </h3>
       <div className="flex items-center justify-between gap-8">

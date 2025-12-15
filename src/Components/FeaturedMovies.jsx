@@ -5,32 +5,30 @@ import FilmCard from './FilmCard'
 export default function FeaturedMovies() {
   const [movies, setMovies] = useState([])
 
-  const fetchTopRatedMovies = async () => {
-    try {
-      const res = await fetch(
-        'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1',
-        {
-          headers: {
-            accept: 'application/json',
-            Authorization:
-              'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NmQ5MjQ1MTUwNmVjMzgwNmM0NzUyYjNkMGMyMDgyMCIsIm5iZiI6MTc2NTU4MzExNi45MDcsInN1YiI6IjY5M2NhOTBjZTZmZjU1Mjg0MmY3N2ZlOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.MuNMN3nyC-xVQM4IuVOEHHXZEKrjKunq7mKLBSMgziU',
-          },
-        },
-      )
-
-      const data = await res.json()
-      setMovies(data.results)
-    } catch (error) {
-      console.error('Failed to fetch movies', error)
-    }
-  }
-
   useEffect(() => {
-    fetchTopRatedMovies()
+    ;(async () => {
+      try {
+        const res = await fetch(
+          'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1',
+          {
+            headers: {
+              accept: 'application/json',
+              Authorization:
+                'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NmQ5MjQ1MTUwNmVjMzgwNmM0NzUyYjNkMGMyMDgyMCIsIm5iZiI6MTc2NTU4MzExNi45MDcsInN1YiI6IjY5M2NhOTBjZTZmZjU1Mjg0MmY3N2ZlOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.MuNMN3nyC-xVQM4IuVOEHHXZEKrjKunq7mKLBSMgziU',
+            },
+          },
+        )
+
+        const data = await res.json()
+        setMovies(data.results)
+      } catch (error) {
+        console.error('Failed to fetch movies', error)
+      }
+    })()
   }, [])
 
   return (
-    <section className="my-8 p-2 md:p-3">
+    <section className="my-4 p-2 md:p-3">
       <div className="mx-auto max-w-7xl">
         <div className="flex justify-between">
           <p className="text-xl font-semibold">Featured Movies</p>
