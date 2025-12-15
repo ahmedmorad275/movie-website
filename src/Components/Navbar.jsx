@@ -1,7 +1,67 @@
+import { useEffect, useRef, useState } from 'react'
 import logo from '../assets/logo.png'
 import { IoSearch, IoMenu } from 'react-icons/io5'
 
 export default function Navbar() {
+  const [word, setWord] = useState('')
+  const [movies, setMovies] = useState([])
+  const [loading, setLoading] = useState(false)
+  const [debouncedWord, setDebouncedWord] = useState(word)
+  const [open, setOpen] = useState(false)
+  const inputDesktopRef = useRef(null)
+  const inputMobRef = useRef(null)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedWord(word)
+    }, 500)
+
+    return () => clearTimeout(timer)
+  }, [word])
+  // Fetching Movies
+  useEffect(() => {
+    if (!debouncedWord.trim()) {
+      setMovies([])
+      setLoading(false)
+      return
+    }
+    ;(async () => {
+      setLoading(true)
+      try {
+        const res = await fetch(
+          `https://api.themoviedb.org/3/search/movie?query=${debouncedWord}`,
+          {
+            headers: {
+              accept: 'application/json',
+              Authorization:
+                'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NmQ5MjQ1MTUwNmVjMzgwNmM0NzUyYjNkMGMyMDgyMCIsIm5iZiI6MTc2NTU4MzExNi45MDcsInN1YiI6IjY5M2NhOTBjZTZmZjU1Mjg0MmY3N2ZlOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.MuNMN3nyC-xVQM4IuVOEHHXZEKrjKunq7mKLBSMgziU',
+            },
+          },
+        )
+
+        const data = await res.json()
+        setMovies(data.results.slice(0, 4))
+      } catch (error) {
+        console.error('Failed to fetch movies', error)
+      } finally {
+        setLoading(false)
+      }
+    })()
+  }, [debouncedWord])
+
+  useEffect(() => {
+    function handleClose(e) {
+      if (e.key === 'Escape') {
+        inputDesktopRef.current?.blur()
+        inputMobRef.current?.blur()
+      }
+    }
+    document.body.addEventListener('keydown', handleClose)
+    return () => {
+      document.removeEventListener('keydown', handleClose)
+    }
+  }, [])
+
   return (
     <>
       <nav className="p-2 md:p-3">
@@ -19,6 +79,11 @@ export default function Navbar() {
             {/* search Input */}
             <div className="relative flex items-center">
               <input
+                ref={inputDesktopRef}
+                onFocus={() => setOpen(true)}
+                onBlur={() => setTimeout(() => setOpen(false), 150)}
+                value={word}
+                onChange={(e) => setWord(e.target.value)}
                 type="text"
                 className="w-72 rounded-lg border border-white/30 bg-black/40 px-3 py-1 pr-8 text-white transition-all duration-300 outline-none placeholder:text-white/70 focus:w-80 focus:border-rose-600 focus:bg-black/60 focus:shadow-[0_0_15px_rgba(244,63,94,0.5)]"
                 placeholder="Search movies..."
@@ -27,33 +92,98 @@ export default function Navbar() {
             </div>
 
             {/* Search Result */}
-            {/* <div className="absolute mt-2 w-full bg-gray-900 border border-gray-700 rounded-lg shadow-xl max-h-80 overflow-auto z-50">
-              <div className="flex gap-3 p-2 items-center hover:bg-gray-800 cursor-pointer">
-                <img src={logo} className="h-14 rounded-md" />
-                <div>
-                  <p className="text-white font-semibold">Ahmed Morad</p>
-                  <p className="text-rose-400 text-sm">2025</p>
-                </div>
+            {open && movies.length > 0 && (
+              <div className="absolute z-50 mt-2 h-fit w-full rounded-lg border border-gray-700 bg-gray-900 shadow-xl">
+                {loading ? (
+                  <p className="p-2 font-semibold text-white">Loading...</p>
+                ) : (
+                  movies.map((movie) => {
+                    return (
+                      <div
+                        key={movie.id}
+                        className="flex cursor-pointer items-center gap-3 p-2 hover:bg-gray-800"
+                      >
+                        <img
+                          src={
+                            'https://image.tmdb.org/t/p/w500' +
+                            movie.poster_path
+                          }
+                          className="h-14 rounded-md"
+                        />
+                        <div>
+                          <p className="font-semibold text-white">
+                            {movie?.title}
+                          </p>
+                          <p className="text-sm text-rose-400">
+                            {new Date(movie?.release_date).getFullYear()}
+                          </p>
+                        </div>
+                      </div>
+                    )
+                  })
+                )}
               </div>
-              <div className="flex gap-3 p-2 items-center hover:bg-gray-800 cursor-pointer">
-                <img src={logo} className="h-14 rounded-md" />
-                <div>
-                  <p className="text-white font-semibold">Ahmed Morad</p>
-                  <p className="text-rose-400 text-sm">2025</p>
-                </div>
-              </div>
-            </div> */}
+            )}
           </div>
 
           {/* Menu Desktop*/}
           <div className="menu-box flex items-center gap-2.5 md:gap-3.5">
-            <button className="cursor-pointer rounded-lg border border-gray-300 px-4 py-1 font-semibold text-white transition-colors duration-300 hover:border-rose-700 hover:bg-rose-700">
+            <button className="cursor-pointer rounded-lg border border-gray-300 px-4 py-1 font-semibold text-white transition-colors duration-300 hover:border-rose-700 hover:bg-rose-700 focus:bg-rose-700">
               Login
             </button>
             <div className="flex cursor-pointer items-center rounded-full bg-rose-700 p-1 text-2xl font-bold text-white">
               <IoMenu />
             </div>
           </div>
+        </div>
+
+        {/* Search on Mobile */}
+        <div className="relative mt-3.5 text-white md:hidden">
+          <div className="relative flex items-center">
+            <input
+              ref={inputMobRef}
+              onFocus={() => setOpen(true)}
+              onBlur={() => setTimeout(() => setOpen(false), 150)}
+              value={word}
+              onChange={(e) => setWord(e.target.value)}
+              type="text"
+              className="w-full rounded-lg border border-white/30 bg-black/40 px-3 py-1 pr-8 text-white transition-all duration-300 outline-none placeholder:text-white/70 focus:border-rose-600 focus:bg-black/60 focus:shadow-[0_0_15px_rgba(244,63,94,0.5)]"
+              placeholder="Search movies..."
+            />
+            <IoSearch className="absolute top-1/2 right-3 -translate-y-1/2" />
+          </div>
+
+          {open && movies.length > 0 && (
+            <div className="absolute z-50 mt-2 h-fit min-w-full rounded-lg border border-gray-700 bg-gray-900 shadow-xl md:hidden">
+              {loading ? (
+                <p className="p-2 font-semibold text-white">Loading...</p>
+              ) : (
+                movies.map((movie) => {
+                  return (
+                    <div
+                      key={movie.id}
+                      className="flex cursor-pointer items-center gap-3 p-2 hover:bg-gray-800"
+                    >
+                      <img
+                        src={
+                          'https://image.tmdb.org/t/p/w500' + movie.poster_path
+                        }
+                        className="h-14 rounded-md"
+                      />
+                      <div>
+                        <p className="font-semibold text-white">
+                          {movie?.title}
+                        </p>
+                        <p className="text-sm text-rose-400">
+                          {new Date(movie?.release_date).getFullYear()}
+                        </p>
+                      </div>
+                    </div>
+                  )
+                })
+              )}
+            </div>
+          )}
         </div>
       </nav>
     </>

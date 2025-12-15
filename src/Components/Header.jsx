@@ -32,6 +32,7 @@ export default function Header() {
     })()
   }, [])
 
+  // Change Movie
   useEffect(() => {
     if (isPaused) return
     intervalRef.current = setInterval(() => {
@@ -45,7 +46,9 @@ export default function Header() {
 
   return (
     <header className="relative min-h-screen overflow-hidden">
+      {/* NavBar */}
       <Navbar />
+
       {/* Background Image */}
       <div className="absolute inset-0 -z-30">
         <img
@@ -62,6 +65,7 @@ export default function Header() {
       {/* Vignette (Top & Bottom stronger) */}
       <div className="absolute inset-0 -z-10 h-screen overflow-hidden bg-linear-to-b from-black/80 via-black/20 to-black/80"></div>
 
+      {/* Hero Section */}
       <Hero
         movies={movies}
         movie={movie}
