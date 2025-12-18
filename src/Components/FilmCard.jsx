@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { MdFavoriteBorder } from 'react-icons/md'
 
 export default function FilmCard({ movie }) {
+  const titleRef = useRef(null)
+  const [scroll, setScroll] = useState(false)
+  useEffect(() => {
+    if (!titleRef.current) return
+    const el = titleRef.current
+    const lineHeight = parseInt(getComputedStyle(el).lineHeight)
+    const lines = Math.round(el.scrollHeight / lineHeight)
+
+    // لو عدد السطور > 1 يبقا محتاج انيميشن
+    if (lines > 1) setScroll(true)
+  }, [])
+
   const imgURL = 'https://image.tmdb.org/t/p/w500' + movie.poster_path
   return (
     <div className="flex-1 space-y-3 overflow-hidden rounded-lg bg-gray-50/20 p-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
@@ -17,8 +29,17 @@ export default function FilmCard({ movie }) {
           new Date(movie.first_air_date).getFullYear()}{' '}
         - Current
       </p>
-      <h3 className="text-lg font-bold text-gray-900">
-        {movie.original_name || movie.title}
+      <h3
+        className={`movie-title overflow-hidden text-lg font-bold text-gray-900`}
+      >
+        <span
+          ref={titleRef}
+          className={`inline-block ${
+            scroll ? 'animate-marquee whitespace-nowrap' : 'line-clamp-2'
+          }`}
+        >
+          {movie.original_name || movie.title}
+        </span>
       </h3>
       <div className="flex items-center justify-between gap-8">
         <div className="flex items-center gap-1">

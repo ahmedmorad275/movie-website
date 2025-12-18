@@ -1,4 +1,3 @@
-import ExclusiveVideos from './Components/ExclusiveVideos'
 import FeaturedMovies from './Components/FeaturedMovies'
 import Footer from './Components/Footer'
 import Header from './Components/Header'
@@ -10,7 +9,6 @@ function App() {
       <Header />
       <FeaturedMovies />
       <NewArrival />
-      <ExclusiveVideos />
       <Footer />
     </>
   )

@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { FaChevronRight } from 'react-icons/fa'
 import FilmCard from './FilmCard'
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+// Import Swiper styles
+import 'swiper/css'
+import { Autoplay } from 'swiper/modules'
 
 export default function NewArrival() {
   const [movies, setMovies] = useState([])
@@ -39,11 +45,25 @@ export default function NewArrival() {
           </a>
         </div>
         {/* Films */}
-        <div className="mt-6 flex justify-between gap-12">
-          {movies.slice(0, 4).map((movie) => {
-            return <FilmCard key={movie.id} movie={movie} />
+        <Swiper
+          modules={[Autoplay]}
+          spaceBetween={16}
+          slidesPerView={1}
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            768: { slidesPerView: 3 },
+            1024: { slidesPerView: 5 },
+          }}
+          autoplay={{ delay: 5000 }}
+        >
+          {movies.slice(0, 10).map((movie) => {
+            return (
+              <SwiperSlide>
+                <FilmCard key={movie.id} movie={movie} />
+              </SwiperSlide>
+            )
           })}
-        </div>
+        </Swiper>
       </div>
     </section>
   )
