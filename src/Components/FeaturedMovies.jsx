@@ -35,7 +35,7 @@ export default function FeaturedMovies() {
 
   return (
     <section className="my-4 p-2 md:p-3">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl space-y-4">
         <div className="flex justify-between">
           <p className="text-xl font-semibold">Featured Movies</p>
           <a className="flex cursor-pointer items-center gap-2.5 text-lg text-rose-700 transition-colors duration-300 hover:text-rose-600">

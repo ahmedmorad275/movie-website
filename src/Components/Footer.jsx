@@ -5,13 +5,37 @@ import { IoLogoGithub } from 'react-icons/io5'
 
 export default function Footer() {
   return (
-    <footer className="my-8 p-2 md:p-3">
+    <footer className="my-8 mb-3.5 p-2 md:p-3">
       <div className="mx-auto max-w-7xl space-y-4 text-center">
         <div className="social flex justify-center gap-4.5 text-2xl">
-          <FaSquareFacebook className="cursor-pointer transition-all duration-200 hover:scale-110" />
-          <BsWhatsapp className="cursor-pointer transition-all duration-200 hover:scale-110" />
-          <FaLinkedin className="cursor-pointer transition-all duration-200 hover:scale-110" />
-          <IoLogoGithub className="cursor-pointer transition-all duration-200 hover:scale-110" />
+          <a
+            className="cursor-pointer transition-all duration-200 hover:scale-110"
+            href="https://www.fb.com/ahmedmorad22"
+            target="_blank"
+          >
+            <FaSquareFacebook />
+          </a>
+          <a
+            className="cursor-pointer transition-all duration-200 hover:scale-110"
+            href="https://wa.me/+201017168338"
+            target="_blank"
+          >
+            <BsWhatsapp />
+          </a>
+          <a
+            className="cursor-pointer transition-all duration-200 hover:scale-110"
+            href="https://www.linkedin.com/in/ahmedmorad27"
+            target="_blank"
+          >
+            <FaLinkedin />
+          </a>
+          <a
+            className="cursor-pointer transition-all duration-200 hover:scale-110"
+            href="https://github.com/ahmedmorad275"
+            target="_blank"
+          >
+            <IoLogoGithub />
+          </a>
         </div>
         {/* Policy */}
         <div className="policy flex justify-center gap-5">

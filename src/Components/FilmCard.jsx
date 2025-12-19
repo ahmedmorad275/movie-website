@@ -16,7 +16,7 @@ export default function FilmCard({ movie }) {
 
   const imgURL = 'https://image.tmdb.org/t/p/w500' + movie.poster_path
   return (
-    <div className="flex-1 space-y-3 overflow-hidden rounded-lg bg-gray-50/20 p-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+    <div className="flex-1 space-y-3 cursor-pointer hover:backdrop-brightness-95 overflow-hidden rounded-lg bg-gray-50/20 p-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       <div className="relative">
         <img src={imgURL} className="rounded-lg" />
         <div className="absolute top-4 right-4 cursor-pointer rounded-full bg-gray-400 p-1 text-gray-600">

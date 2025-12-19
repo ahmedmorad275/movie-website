@@ -1,6 +1,7 @@
+import { useState } from 'react'
 import { FaPlayCircle } from 'react-icons/fa'
 import { FaStar } from 'react-icons/fa'
-
+import Modal from './Modal'
 export default function Hero({
   movies,
   movie,
@@ -8,8 +9,16 @@ export default function Hero({
   setCurIndex,
   setIsPaused,
 }) {
+  const [openModal, setOpenModal] = useState(false)
+
+  if (openModal) setIsPaused(true)
+  else setIsPaused(false)
+
   return (
     <main className="absolute top-1/2 w-full -translate-y-1/2 p-2 md:p-3">
+      {openModal && (
+        <Modal open={openModal} setOpen={setOpenModal} movie={movie} />
+      )}
       <div className="animate-fadeIn mx-auto flex w-full max-w-7xl flex-col justify-between gap-10 text-white md:flex-row">
         {/* Description */}
         <div
@@ -33,6 +42,7 @@ export default function Hero({
           </div>
           {/* Button */}
           <button
+            onClick={() => setOpenModal(true)}
             aria-label="Watch Trailer"
             className="mx-auto flex cursor-pointer items-center gap-2.5 rounded-lg bg-rose-700 px-4 py-1.5 font-bold transition-colors duration-300 hover:bg-rose-600 md:mx-0"
           >

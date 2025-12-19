@@ -34,7 +34,7 @@ export default function NewArrival() {
   }, [])
   return (
     <section className="my-8 p-2 md:p-3">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl space-y-4 ">
         <div className="flex justify-between">
           <p className="text-xl font-semibold">New Arrival</p>
           <a className="flex cursor-pointer items-center gap-2.5 text-lg text-rose-700 transition-colors duration-300 hover:text-rose-600">
