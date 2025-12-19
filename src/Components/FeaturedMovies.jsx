@@ -34,7 +34,7 @@ export default function FeaturedMovies() {
   }, [])
 
   return (
-    <section className="my-4 p-2 md:p-3">
+    <section id="featured" className="my-4 p-2 md:p-3">
       <div className="mx-auto max-w-7xl space-y-4">
         <div className="flex justify-between">
           <p className="text-xl font-semibold">Featured Movies</p>
@@ -59,13 +59,12 @@ export default function FeaturedMovies() {
         >
           {movies.slice(0, 10).map((movie) => {
             return (
-              <SwiperSlide>
-                <FilmCard key={movie.id} movie={movie} />
+              <SwiperSlide key={movie.id}>
+                <FilmCard movie={movie} />
               </SwiperSlide>
             )
           })}
         </Swiper>
-
       </div>
     </section>
   )

@@ -7,7 +7,10 @@ export default function Footer() {
   return (
     <footer className="my-8 mb-3.5 p-2 md:p-3">
       <div className="mx-auto max-w-7xl space-y-4 text-center">
-        <div className="social flex justify-center gap-4.5 text-2xl">
+        <div
+          id="contact"
+          className="social flex justify-center gap-4.5 text-2xl"
+        >
           <a
             className="cursor-pointer transition-all duration-200 hover:scale-110"
             href="https://www.fb.com/ahmedmorad22"

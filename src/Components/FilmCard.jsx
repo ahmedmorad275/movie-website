@@ -10,7 +10,6 @@ export default function FilmCard({ movie }) {
     const lineHeight = parseInt(getComputedStyle(el).lineHeight)
     const lines = Math.round(el.scrollHeight / lineHeight)
 
-    // لو عدد السطور > 1 يبقا محتاج انيميشن
     if (lines > 1) setScroll(true)
   }, [])
 

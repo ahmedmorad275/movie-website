@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import logo from '../assets/logo.png'
 import { IoSearch, IoMenu } from 'react-icons/io5'
+import Menu from './Menu'
 
 export default function Navbar() {
   const [word, setWord] = useState('')
@@ -128,12 +129,7 @@ export default function Navbar() {
 
           {/* Menu Desktop*/}
           <div className="menu-box flex items-center gap-2.5 md:gap-3.5">
-            <button className="cursor-pointer rounded-lg border border-gray-300 px-4 py-1 font-semibold text-white transition-colors duration-300 hover:border-rose-700 hover:bg-rose-700 focus:bg-rose-700">
-              Login
-            </button>
-            <div className="flex cursor-pointer items-center rounded-full bg-rose-700 p-1 text-2xl font-bold text-white">
-              <IoMenu />
-            </div>
+            <Menu />
           </div>
         </div>
 

@@ -12,7 +12,9 @@
     transform: translateX(0);
   }
 }
-
+:root {
+  scroll-behavior: smooth;
+}
 .animate-marquee {
   display: inline-block;
   padding-left: 100%;

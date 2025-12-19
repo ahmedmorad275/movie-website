@@ -45,7 +45,7 @@ export default function Header() {
   const movie = movies[curIndex]
 
   return (
-    <header className="relative min-h-screen overflow-hidden">
+    <header id="home" className="relative min-h-screen overflow-hidden">
       {/* NavBar */}
       <Navbar />
 
