@@ -27,7 +27,7 @@ export default function NewArrival() {
         )
 
         const data = await res.json()
-        setMovies(data.results)
+        setMovies(data.results.slice(0,5))
       } catch (error) {
         console.error('Failed to fetch movies', error)
       }

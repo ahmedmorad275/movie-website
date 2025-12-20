@@ -27,7 +27,7 @@ export default function FeaturedMovies() {
         )
 
         const data = await res.json()
-        setMovies(data.results)
+        setMovies(data.results.slice(0, 5))
       } catch (error) {
         console.error('Failed to fetch movies', error)
       }
@@ -39,7 +39,10 @@ export default function FeaturedMovies() {
       <div className="mx-auto max-w-7xl space-y-4">
         <div className="flex justify-between">
           <p className="text-xl font-semibold">Featured Movies</p>
-          <Link to={'/featured'} className="flex cursor-pointer items-center gap-2.5 text-lg text-rose-700 transition-colors duration-300 hover:text-rose-600">
+          <Link
+            to={'/featured'}
+            className="flex cursor-pointer items-center gap-2.5 text-lg text-rose-700 transition-colors duration-300 hover:text-rose-600"
+          >
             See More
             <span>
               <FaChevronRight />
