@@ -1,6 +1,4 @@
 @import 'tailwindcss';
-@import 'flowbite-react/plugin/tailwindcss';
-@source '../.flowbite-react/class-list.json';
 
 @keyframes fadeIn {
   from {
@@ -73,4 +71,10 @@
       transform: translateY(0);
     }
   }
+}
+
+.movies-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
 }
