@@ -26,7 +26,6 @@ export default function MoviePage() {
         )
 
         const data = await res.json()
-        console.log(data)
         setMovie(data)
       } catch (error) {
         console.error('Failed to fetch movies', error)
