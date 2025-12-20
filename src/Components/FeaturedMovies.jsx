@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
 import 'swiper/css'
 import { Autoplay } from 'swiper/modules'
+import { Link } from 'react-router'
 
 export default function FeaturedMovies() {
   const [movies, setMovies] = useState([])
@@ -38,12 +39,12 @@ export default function FeaturedMovies() {
       <div className="mx-auto max-w-7xl space-y-4">
         <div className="flex justify-between">
           <p className="text-xl font-semibold">Featured Movies</p>
-          <a className="flex cursor-pointer items-center gap-2.5 text-lg text-rose-700 transition-colors duration-300 hover:text-rose-600">
+          <Link to={'/featured'} className="flex cursor-pointer items-center gap-2.5 text-lg text-rose-700 transition-colors duration-300 hover:text-rose-600">
             See More
             <span>
               <FaChevronRight />
             </span>
-          </a>
+          </Link>
         </div>
         {/* Films */}
         <Swiper
