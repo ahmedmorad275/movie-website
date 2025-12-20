@@ -1,5 +1,7 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { IoMenu } from 'react-icons/io5'
+import { Link } from 'react-router'
+// import Menu from '@mui/icons-material/Menu'
 
 export default function Example() {
   return (
@@ -14,20 +16,20 @@ export default function Example() {
       >
         <div className="py-1">
           <MenuItem>
-            <a
-              href="#featured"
+            <Link
+              to={'/featured'}
               className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden"
             >
               Featured Movies
-            </a>
+            </Link>
           </MenuItem>
           <MenuItem>
-            <a
-              href="#newArrival"
+            <Link
+              to={'/new-arrival'}
               className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden"
             >
               New Arrival
-            </a>
+            </Link>
           </MenuItem>
           <MenuItem>
             <a

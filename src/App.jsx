@@ -1,7 +1,5 @@
-import FeaturedMovies from './Components/FeaturedMovies'
+import { Outlet } from 'react-router'
 import Footer from './Components/Footer'
-import Header from './Components/Header'
-import NewArrival from './Components/NewArrival'
 import { useState, useEffect } from 'react'
 
 function App() {
@@ -58,9 +56,7 @@ function App() {
           </button>
         </div>
       )}
-      <Header />
-      <FeaturedMovies />
-      <NewArrival />
+      <Outlet />
       <Footer />
     </>
   )
