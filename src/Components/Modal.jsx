@@ -16,7 +16,7 @@ export default function Example({ open, setOpen, movie }) {
     ;(async () => {
       try {
         const res = await fetch(
-          `https://api.themoviedb.org/3/movie/${movie?.id}/videos?language=en-US`,
+          `https://api.themoviedb.org/3/movie/${movie.id}/videos?language=en-US`,
           {
             headers: {
               accept: 'application/json',
@@ -27,13 +27,7 @@ export default function Example({ open, setOpen, movie }) {
         )
 
         const data = await res.json()
-        setTrailer(
-          data.results.find(
-            (trail) =>
-              trail.type === 'Trailer' &&
-              trail.name.toLowerCase().includes('official'),
-          ),
-        )
+        setTrailer(data.results.find((trail) => trail.type === 'Trailer'))
         console.log(data.results)
       } catch (error) {
         console.error('Failed to fetch movies', error)
@@ -67,13 +61,17 @@ export default function Example({ open, setOpen, movie }) {
                       {movie.title}
                     </DialogTitle>
                     {/* Dialog Content */}
-                    <div className="mt-2">
-                      <iframe
-                        allowFullScreen
-                        className="h-96 w-full rounded-2xl"
-                        src={`https://www.youtube.com/embed/${trailer?.key}`}
-                      ></iframe>
-                    </div>
+                    {!trailer ? (
+                      <h2 className='pt-4 text-xl font-semibold tracking-wider'>Sorry, Trailer isn't Available</h2>
+                    ) : (
+                      <div className="mt-2">
+                        <iframe
+                          allowFullScreen
+                          className="h-96 w-full rounded-2xl"
+                          src={`https://www.youtube.com/embed/${trailer?.key}`}
+                        ></iframe>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

@@ -64,7 +64,9 @@ export default function FeaturedMovies() {
           {movies.slice(0, 10).map((movie) => {
             return (
               <SwiperSlide key={movie.id}>
-                <FilmCard movie={movie} />
+                <Link to={`/movie/${movie.id}`}>
+                  <FilmCard movie={movie} />
+                </Link>
               </SwiperSlide>
             )
           })}

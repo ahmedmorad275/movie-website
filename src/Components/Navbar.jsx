@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import logo from '../assets/logo.png'
 import { IoSearch, IoMenu } from 'react-icons/io5'
 import Menu from './Menu'
-import { useNavigate } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 
 export default function Navbar({ color }) {
   const [word, setWord] = useState('')
@@ -105,7 +105,8 @@ export default function Navbar({ color }) {
                 ) : (
                   movies.map((movie) => {
                     return (
-                      <div
+                      <Link
+                        to={`/movie/${movie.id}`}
                         key={movie.id}
                         className="flex cursor-pointer items-center gap-3 p-2 hover:bg-gray-800"
                       >
@@ -124,7 +125,7 @@ export default function Navbar({ color }) {
                             {new Date(movie?.release_date).getFullYear()}
                           </p>
                         </div>
-                      </div>
+                      </Link>
                     )
                   })
                 )}
@@ -161,7 +162,8 @@ export default function Navbar({ color }) {
               ) : (
                 movies.map((movie) => {
                   return (
-                    <div
+                    <Link
+                      to={`/movie/${movie.id}`}
                       key={movie.id}
                       className="flex cursor-pointer items-center gap-3 p-2 hover:bg-gray-800"
                     >
@@ -179,7 +181,7 @@ export default function Navbar({ color }) {
                           {new Date(movie?.release_date).getFullYear()}
                         </p>
                       </div>
-                    </div>
+                    </Link>
                   )
                 })
               )}

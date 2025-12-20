@@ -27,7 +27,7 @@ export default function NewArrival() {
         )
 
         const data = await res.json()
-        setMovies(data.results.slice(0,5))
+        setMovies(data.results.slice(0, 5))
       } catch (error) {
         console.error('Failed to fetch movies', error)
       }
@@ -38,12 +38,15 @@ export default function NewArrival() {
       <div className="mx-auto max-w-7xl space-y-4">
         <div className="flex justify-between">
           <p className="text-xl font-semibold">New Arrival</p>
-          <Link to={'/new-arrival'} className="flex cursor-pointer items-center gap-2.5 text-lg text-rose-700 transition-colors duration-300 hover:text-rose-600">
+          <Link
+            to={'/new-arrival'}
+            className="flex cursor-pointer items-center gap-2.5 text-lg text-rose-700 transition-colors duration-300 hover:text-rose-600"
+          >
             See More
             <span>
               <FaChevronRight />
             </span>
-          </Link >
+          </Link>
         </div>
         {/* Films */}
         <Swiper
@@ -60,7 +63,9 @@ export default function NewArrival() {
           {movies.slice(0, 10).map((movie) => {
             return (
               <SwiperSlide key={movie.id}>
-                <FilmCard movie={movie} />
+                <Link to={`/movie/${movie.id}`}>
+                  <FilmCard movie={movie} />
+                </Link>
               </SwiperSlide>
             )
           })}

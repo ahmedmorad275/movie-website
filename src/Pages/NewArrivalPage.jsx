@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import Navbar from '../Components/Navbar'
 import FilmCard from '../Components/FilmCard'
+import { Link } from 'react-router'
+import Footer from '../Components/Footer'
 
 export default function NewArrivalPage() {
   const [movies, setMovies] = useState([])
@@ -37,9 +39,14 @@ export default function NewArrivalPage() {
       <div className="movies-container mx-auto mt-2 max-w-7xl p-2 md:p-3">
         {/* Movie Container */}
         {movies.map((movie) => {
-          return <FilmCard movie={movie} />
+          return (
+            <Link to={`/movie/${movie.id}`} key={movie.id}>
+              <FilmCard movie={movie} />
+            </Link>
+          )
         })}
       </div>
+      <Footer />
     </>
   )
 }

@@ -5,7 +5,7 @@ import { IoLogoGithub } from 'react-icons/io5'
 
 export default function Footer() {
   return (
-    <footer className="my-8 mb-3.5 p-2 md:p-3">
+    <footer className="pt-8 pb-3.5  bg-gray-900 text-white">
       <div className="mx-auto max-w-7xl space-y-4 text-center">
         <div
           id="contact"
@@ -43,26 +43,26 @@ export default function Footer() {
         {/* Policy */}
         <div className="policy flex justify-center gap-5">
           <a
-            className="text-base font-semibold text-gray-900 transition-colors duration-300 hover:text-gray-800"
+            className="text-base font-semibold transition-colors duration-300 hover:text-gray-800"
             href="#"
           >
             Conditions of Use
           </a>
           <a
-            className="text-base font-semibold text-gray-900 transition-colors duration-300 hover:text-gray-800"
+            className="text-base font-semibold transition-colors duration-300 hover:text-gray-800"
             href="#"
           >
             Privacy & Policy
           </a>
           <a
-            className="text-base font-semibold text-gray-900 transition-colors duration-300 hover:text-gray-800"
+            className="text-base font-semibold transition-colors duration-300 hover:text-gray-800"
             href="#"
           >
             Press Room
           </a>
         </div>
         <div className="rights">
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-300">
             2025 AMG Cinema by Ahmed Morad
           </p>
         </div>
